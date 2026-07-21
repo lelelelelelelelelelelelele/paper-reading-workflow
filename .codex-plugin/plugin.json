@@ -1,0 +1,36 @@
+{
+  "name": "paper-reading-workflow",
+  "version": "1.0.0",
+  "description": "A paired academic-paper workflow for active reading notes and verified Obsidian archives.",
+  "author": {
+    "name": "lele",
+    "url": "https://github.com/lelelelelelelelelelelelele"
+  },
+  "homepage": "https://github.com/lelelelelelelelelelelelele/paper-reading-workflow",
+  "repository": "https://github.com/lelelelelelelelelelelelele/paper-reading-workflow",
+  "license": "MIT",
+  "keywords": [
+    "academic-research",
+    "paper-reading",
+    "obsidian",
+    "markdown",
+    "html"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Paper Reading Workflow",
+    "shortDescription": "Active paper notes and verified Obsidian archives",
+    "longDescription": "Use paper-notes for pre-reading, companion self-tests, corrections, and critical post-reading notes; then use paper-reading-intake to verify primary evidence and create one canonical Markdown note plus one self-contained HTML report.",
+    "developerName": "lele",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/lelelelelelelelelelelelele/paper-reading-workflow",
+    "defaultPrompt": [
+      "Use paper-notes to guide my active reading of this paper.",
+      "Use paper-reading-intake to archive this paper in Obsidian."
+    ]
+  }
+}

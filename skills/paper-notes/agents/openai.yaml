@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paper Notes"
+  short_description: "Guide active paper reading with critical notes"
+  default_prompt: "Use $paper-notes to guide my reading of this paper with a pre-read map, section self-tests, corrections, and a critical post-read work note."

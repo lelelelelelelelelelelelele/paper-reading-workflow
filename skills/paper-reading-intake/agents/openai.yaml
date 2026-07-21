@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paper Reading Intake"
+  short_description: "Archive papers as verified Markdown and HTML"
+  default_prompt: "Use $paper-reading-intake to verify this paper, reuse any matching paper-notes work note, and archive one canonical Markdown note plus a self-contained HTML report."

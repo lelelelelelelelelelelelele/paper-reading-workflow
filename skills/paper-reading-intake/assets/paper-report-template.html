@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{PAPER_TITLE}} 论文原图速读</title>
+  <style>
+    :root {
+      --ink: #202124;
+      --muted: #5f6368;
+      --line: #d9dee6;
+      --page: #f6f7f9;
+      --panel: #fff;
+      --accent: #285bbd;
+      --good: #247a58;
+      --warn: #8a5b00;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--page);
+      font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    header { padding: 44px 24px 36px; color: #fff; background: #172033; }
+    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    h1 { margin: 0 0 12px; font-size: clamp(30px, 5vw, 52px); line-height: 1.1; letter-spacing: 0; }
+    h2 { margin: 0 0 12px; font-size: 24px; letter-spacing: 0; }
+    h3 { margin: 0 0 8px; font-size: 17px; letter-spacing: 0; }
+    p { margin: 9px 0; }
+    p, th, td, .note, .mechanism, .caveat { overflow-wrap: anywhere; }
+    a { color: var(--accent); }
+    header a { color: #dce7ff; }
+    main { padding: 26px 0 56px; }
+    section { margin: 18px 0; padding: 24px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+    .subtitle { max-width: 880px; margin: 0; color: #d8dfeb; font-size: 18px; }
+    .meta { margin-top: 16px; color: #d8dfeb; font-size: 14px; }
+    .summary, .figure-row { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr); gap: 18px; align-items: start; }
+    .verdict { padding: 14px 16px; border-left: 4px solid var(--accent); border-radius: 6px; background: #eef3ff; font-weight: 650; }
+    .note { padding: 15px; border: 1px solid #e2e6ed; border-radius: 8px; background: #fbfcfe; }
+    .note strong { color: var(--accent); }
+    figure { margin: 0; }
+    figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+    figcaption { margin-top: 7px; color: var(--muted); font-size: 13px; }
+    table { width: 100%; margin-top: 12px; border-collapse: collapse; table-layout: fixed; font-size: 14px; }
+    th, td { padding: 10px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: #f1f3f6; }
+    .mechanism { margin-top: 14px; padding: 14px 16px; border-left: 4px solid var(--good); background: #eef8f3; }
+    .caveat { margin-top: 14px; padding: 14px 16px; border-left: 4px solid var(--warn); background: #fff7e5; }
+    .source { color: var(--muted); font-size: 13px; }
+    @media (max-width: 860px) {
+      .summary, .figure-row { grid-template-columns: 1fr; }
+      section { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>{{PAPER_TITLE}}</h1>
+      <p class="subtitle">{{ONE_LINE_TOPIC}}</p>
+      <p class="meta"><a href="{{PAPER_URL}}">论文</a> · <a href="{{CODE_URL}}">代码</a> · {{VERSION_OR_DATE}}</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="summary">
+      <div>
+        <h2>结论先说</h2>
+        <div class="verdict">{{VERDICT}}</div>
+        <p>{{CORE_IDEA}}</p>
+      </div>
+      <aside class="note">
+        <h3>阅读定位</h3>
+        <p><strong>类型：</strong>{{PAPER_TYPE}}</p>
+        <p><strong>改进层：</strong>{{CHANGED_LAYER}}</p>
+        <p><strong>与主线关系：</strong>{{PROJECT_RELATION}}</p>
+      </aside>
+    </section>
+
+    <!-- Duplicate this section for each core paper-native figure.
+         Embed each figure directly in the HTML as a base64 data URI so the
+         report is self-contained: replace {{FIGURE_PATH}} with
+         "data:image/png;base64,...
+         Do not link to an external figures directory in the archived report. -->
+    <section class="figure-row">
+      <figure>
+        <img src="{{FIGURE_PATH}}" alt="{{FIGURE_ALT}}">
+        <figcaption>{{FIGURE_CAPTION}}</figcaption>
+      </figure>
+      <div>
+        <h2>{{FIGURE_HEADING}}</h2>
+        <p>{{FIGURE_SETUP_AND_FUNCTION}}</p>
+        <p>{{FIGURE_SUPPORT}}</p>
+        <div class="mechanism"><strong>机制辨析：</strong>{{MECHANISM_CLARIFICATION}}</div>
+        <div class="caveat"><strong>证据边界：</strong>{{EVIDENCE_LIMIT}}</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>关键结果</h2>
+      <table>
+        <thead><tr><th>Setting</th><th>Result</th><th>Comparison</th><th>How to read it</th></tr></thead>
+        <tbody><tr><td>{{SETTING}}</td><td>{{RESULT}}</td><td>{{BASELINE}}</td><td>{{INTERPRETATION}}</td></tr></tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>和我的主线关系</h2>
+      <table>
+        <thead><tr><th>Dimension</th><th>This paper</th><th>My line</th><th>Relationship</th></tr></thead>
+        <tbody><tr><td>Problem / layer</td><td>{{THIS_PAPER}}</td><td>{{MY_LINE}}</td><td>{{RELATIONSHIP}}</td></tr></tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>我的判断</h2>
+      <p>{{FINAL_JUDGMENT}}</p>
+      <p class="source">Sources: {{SOURCE_NOTES}}</p>
+    </section>
+  </main>
+</body>
+</html>
