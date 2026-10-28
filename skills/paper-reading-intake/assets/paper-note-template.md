@@ -14,6 +14,8 @@ read: YYYY-MM-DD
 html: "<relative-html-path>"
 ---
 
+<!-- Illustrative outline only: select, combine, rename and reorder sections for the knowledge and intended use. Remove unused headings and placeholders. Include personal/critical evaluation only when requested or already established. Integrate discussion into prose; keep completion recaps in chat. Retain the closed source-metadata callout and link to the self-contained HTML where applicable. -->
+
 # <Paper Title>: <one-line topic>
 
 - 来源：[Paper](<paper-url>)
@@ -43,7 +45,7 @@ html: "<relative-html-path>"
 
 > 图见 HTML 报告：[[<relative-html-path>|📄 展示版]]
 
-### 机制辨析：<X 是什么，不是什么>
+### <A clarification needed by this mechanism>
 
 <Corrected mechanism clarification derived from the paper and upstream reading.>
 

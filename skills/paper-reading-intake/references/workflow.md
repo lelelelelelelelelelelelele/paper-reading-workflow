@@ -11,7 +11,7 @@ Read this reference for a full Obsidian intake, ambiguous classification, eviden
 - [Recommended archive structure](#recommended-archive-structure)
 - [Evidence-strength labels](#evidence-strength-labels)
 - [Classification questions](#classification-questions)
-- [Q&A writeback map](#qa-writeback-map)
+- [Locate the affected knowledge](#locate-the-affected-knowledge)
 - [Cross-machine portability](#cross-machine-portability)
 - [Sync verification](#sync-verification)
 
@@ -64,11 +64,13 @@ Keep this information available without interrupting reading: use a default-coll
 7. Recheck exact numbers, captions, evidence strength, and version-sensitive claims against primary sources.
 8. Write the canonical literature Markdown.
 9. Produce a matching self-contained HTML report with base64 figures.
-10. Patch useful follow-up corrections into the relevant sections of both artifacts.
+10. Synthesize the relevant multi-turn discussion into the note, rewriting affected explanations and their consequences in Markdown and HTML; follow [the synthesis rules](../SKILL.md#7-synthesize-discussion-into-reusable-knowledge).
 11. Add the topic link, index entry, `source_note`, and allowed reciprocal link.
 12. Render the HTML and verify applicable sync.
 
 ## Recommended archive structure
+
+The outline below is one paper-note example. Choose headings and their order from the actual knowledge and intended use; omit, combine, rename, or rearrange sections as needed. Do not require every discussion note to cover the whole paper. Personal or critical evaluation is optional and on demand; retain established evidence limits without adding a review to fill a heading. Preserve the existing source metadata and the self-contained HTML visual surface when applicable.
 
 ```markdown
 ---
@@ -95,7 +97,7 @@ State what the paper is, what it is not, and how it relates to the user's work.
 ## 图 1：<function>
 Explain the setup, support, limits, and relevance. Keep the visual in the linked HTML.
 
-### 机制辨析：X 是什么，不是什么
+### <A clarification needed by this mechanism>
 Write the corrected mechanism beside the evidence.
 
 ## 关键结果
@@ -138,7 +140,9 @@ Answer all five before filing the note:
 
 Prefer a compact comparison table when three or more approaches must be distinguished.
 
-## Q&A writeback map
+## Locate the affected knowledge
+
+These examples help find the material affected by a discussion. They do not prescribe the final headings, one section per question, or a fixed note structure. Apply the synthesis rules in SKILL.md to combine related explanations and propagate supported corrections through their consequences.
 
 | User question or upstream content | Durable destination |
 |---|---|
@@ -149,7 +153,7 @@ Prefer a compact comparison table when three or more approaches must be distingu
 | Raw blind answer or correction history | Keep only in the upstream work note |
 | Unverified sharp insight | Keep upstream until verified or clearly label as interpretation |
 
-Do not add a generic Q&A appendix unless the user explicitly requests a conversation log.
+Keep discussion chronology and update summaries out of the saved knowledge note. A completion recap belongs in the chat reply. A conversation log, when explicitly requested, is a different output from the synthesized note.
 
 ## Cross-machine portability
 
