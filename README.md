@@ -113,7 +113,8 @@ Develop and verify in this repository. Installed copies are consumers. For the
 registered local delivery, merge the accepted candidate into `main`, synchronize
 `origin/main`, then use the project-owned `.workblock/actions/install.json` with
 `project-installer` to update the registered intake consumers and read back every
-managed file. The local registration and records stay outside code Git.
+managed file. A read-only publication precondition refuses installation unless
+the landed local `main` equals live GitHub `main`. The local registration and records stay outside code Git.
 
 The installer exports only `skills/paper-reading-intake` runtime files. It does
 not replace a separately maintained `paper-notes` installation. Preserve the

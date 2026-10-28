@@ -110,8 +110,8 @@ def main() -> None:
         raise ValueError("Install targets differ from write permissions")
     if set(action["targets"]) != set(action["permissions"]["delete"]):
         raise ValueError("Stale managed-file cleanup is not registered")
-    if action["permissions"]["network"]:
-        raise ValueError("This installer does not use network authority")
+    # Network authority is used by the registered publication precondition;
+    # copying and read-back here operate only on local managed runtime files.
     if args.mode == "apply":
         plans = install(source, targets)
     elif args.mode == "verify":
