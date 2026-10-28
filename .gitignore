@@ -4,3 +4,6 @@ __pycache__/
 *.pyc
 *.local
 *.local.*
+
+# Independent WorkBlock records and temporary execution state
+/.workblock/
