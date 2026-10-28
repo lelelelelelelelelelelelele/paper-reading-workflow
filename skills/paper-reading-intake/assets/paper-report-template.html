@@ -48,6 +48,9 @@
     .mechanism { margin-top: 14px; padding: 14px 16px; border-left: 4px solid var(--good); background: #eef8f3; }
     .caveat { margin-top: 14px; padding: 14px 16px; border-left: 4px solid var(--warn); background: #fff7e5; }
     .source { color: var(--muted); font-size: 13px; }
+    details.metadata { margin: 18px 0; padding: 14px 18px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+    details.metadata summary { cursor: pointer; font-weight: 650; }
+    .metadata-table { overflow-x: auto; }
     @media (max-width: 860px) {
       .summary, .figure-row { grid-template-columns: 1fr; }
       section { padding: 18px; }
@@ -55,6 +58,10 @@
   </style>
 </head>
 <body>
+  <!-- Reusable presentation fragments, not a required note outline. Select, combine,
+       rename and reorder sections around the integrated knowledge; omit unused
+       placeholders. Personal/critical evaluation is on demand. Keep completion
+       recaps in chat and source metadata collapsed. Embed figures as data URIs. -->
   <header>
     <div class="wrap">
       <h1>{{PAPER_TITLE}}</h1>
@@ -64,6 +71,18 @@
   </header>
 
   <main class="wrap">
+    <details class="metadata">
+      <summary>Metadata｜发表、作者与关键引用</summary>
+      <p class="source">核查：{{METADATA_CHECKED_DATE}} · 范围：{{METADATA_SCOPE}} · 待核实：{{METADATA_UNRESOLVED}}</p>
+      <p><strong>发表：</strong>{{PUBLICATION_STATUS_AND_SOURCE}}</p>
+      <p><strong>平台与作者背景：</strong>{{VENUE_AND_AUTHOR_CONTEXT_WITH_SOURCES}}</p>
+      <div class="metadata-table">
+        <table>
+          <thead><tr><th>对象</th><th>作用</th><th>文内引用版本 / 状态</th><th>当前核实状态</th><th>对判断的影响</th><th>来源</th></tr></thead>
+          <tbody>{{KEY_SOURCE_METADATA_ROWS}}</tbody>
+        </table>
+      </div>
+    </details>
     <section class="summary">
       <div>
         <h2>结论先说</h2>
@@ -78,7 +97,7 @@
       </aside>
     </section>
 
-    <!-- Duplicate this section for each core paper-native figure.
+    <!-- Use or repeat this fragment only for figures needed by the explanation.
          Embed each figure directly in the HTML as a base64 data URI so the
          report is self-contained: replace {{FIGURE_PATH}} with
          "data:image/png;base64,...

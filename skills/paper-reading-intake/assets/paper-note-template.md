@@ -14,6 +14,8 @@ read: YYYY-MM-DD
 html: "<relative-html-path>"
 ---
 
+<!-- Illustrative outline only: select, combine, rename and reorder sections for the knowledge and intended use. Remove unused headings and placeholders. Include personal/critical evaluation only when requested or already established. Integrate discussion into prose; keep completion recaps in chat. Retain the closed source-metadata callout and link to the self-contained HTML where applicable. -->
+
 # <Paper Title>: <one-line topic>
 
 - 来源：[Paper](<paper-url>)
@@ -22,6 +24,16 @@ html: "<relative-html-path>"
 - 工作精读：[[<work-note>]]
 - 展示版附件：[HTML report](<relative-html-path>)
 - 主题归档：[[<topic-note>]]
+
+> [!info]- Metadata｜发表、作者与关键引用（展开查看）
+> 核查日期：<YYYY-MM-DD>；范围：<本篇与明确列出的关键引用 / 基线>；未核实：<具体项>。
+>
+> **本篇发表**：<状态、版本、平台、年份、主会 / workshop / 期刊、官方来源>。
+> **平台与作者背景**：<领域定位、相关代表工作及来源；未知不等于低声誉>。
+>
+> | 对象 | 作用 | 文内引用版本 / 状态 | 当前核实状态 | 对判断的影响 | 来源 |
+> | --- | --- | --- | --- | --- | --- |
+> | <关键引用或 baseline> | <方法来源 / 机制依据 / 实验对照> | <当时版本> | <发表或未核实> | <具体影响，非见预印本就扣分> | <官方来源> |
 
 ## 结论先说
 
@@ -33,7 +45,7 @@ html: "<relative-html-path>"
 
 > 图见 HTML 报告：[[<relative-html-path>|📄 展示版]]
 
-### 机制辨析：<X 是什么，不是什么>
+### <A clarification needed by this mechanism>
 
 <Corrected mechanism clarification derived from the paper and upstream reading.>
 
