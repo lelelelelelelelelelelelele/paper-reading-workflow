@@ -6,6 +6,7 @@ Read this reference for a full Obsidian intake, ambiguous classification, eviden
 
 - [Data flow](#data-flow)
 - [Output package](#output-package)
+- [Source-background metadata](#source-background-metadata)
 - [Reading and archive sequence](#reading-and-archive-sequence)
 - [Recommended archive structure](#recommended-archive-structure)
 - [Evidence-strength labels](#evidence-strength-labels)
@@ -41,6 +42,16 @@ Adapt logical roles to the vault's existing folders instead of forcing exact nam
 | Literature index | vault literature index | durable link | Global discovery entry |
 
 Do not retain a separate workspace `<slug>_REPORT.md` after the final literature Markdown is established. Do not keep a sibling `<slug>_figures/` directory beside the archived HTML. Avoid absolute image paths in archived HTML.
+
+## Source-background metadata
+
+Keep this information available without interrupting reading: use a default-collapsed Obsidian `> [!info]- Metadata` callout and an HTML `<details>` block without `open`. Do not change global vault settings. Optional frontmatter fields are `publication_status`, `publication_year`, `metadata_checked`, `source_screening` and `source_flags`; they describe sources, not reading completion.
+
+- Verify the paper's publication status (preprint / accepted / published / unverified), version, venue identity (main conference / workshop / journal), authors and affiliations. An arXiv DOI alone is not proof of peer-reviewed publication.
+- Summarize venue standing and relevant author/team track records with sources, not prestige scores. Identify confirmed editorial, identity or research-integrity concerns specifically. Unknown authors, limited track records, fees or absence from a ranking alone do not establish a poor venue or paper. Prestige does not validate the paper's experiments.
+- Check selected load-bearing citations and the actual empirical baselines, not every reference. Use columns: object, role in this paper, cited version/status at the time, currently verified publication status, consequence for interpretation, source link. Keep historical and current status separate.
+- Distinguish a preprint used as an algorithm reference from a preprint carrying an essential empirical or theoretical claim. Surface the dependency and any concrete uncertainty; preprint status alone is not a methodological defect or proof of an unfair baseline.
+- Record checked date, scope and unresolved items. `source_screening: checked-selected` covers only the explicitly listed scope; use `partial` when that scope is unfinished. Preserve uncertainty during intake instead of silently upgrading it. A consequential confirmed concern may warrant one visible sentence while the details stay folded.
 
 ## Reading and archive sequence
 

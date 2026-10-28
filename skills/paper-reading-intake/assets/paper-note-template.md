@@ -23,6 +23,16 @@ html: "<relative-html-path>"
 - 展示版附件：[HTML report](<relative-html-path>)
 - 主题归档：[[<topic-note>]]
 
+> [!info]- Metadata｜发表、作者与关键引用（展开查看）
+> 核查日期：<YYYY-MM-DD>；范围：<本篇与明确列出的关键引用 / 基线>；未核实：<具体项>。
+>
+> **本篇发表**：<状态、版本、平台、年份、主会 / workshop / 期刊、官方来源>。
+> **平台与作者背景**：<领域定位、相关代表工作及来源；未知不等于低声誉>。
+>
+> | 对象 | 作用 | 文内引用版本 / 状态 | 当前核实状态 | 对判断的影响 | 来源 |
+> | --- | --- | --- | --- | --- | --- |
+> | <关键引用或 baseline> | <方法来源 / 机制依据 / 实验对照> | <当时版本> | <发表或未核实> | <具体影响，非见预印本就扣分> | <官方来源> |
+
 ## 结论先说
 
 <What this paper is, what it is not, and how it relates to the research line.>

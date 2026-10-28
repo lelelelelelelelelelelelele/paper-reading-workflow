@@ -23,6 +23,7 @@ Turn a paper-reading session into a clean, durable archive. Treat the final lite
 - Assign a stable `paper_id`: prefer normalized arXiv ID, then DOI, then Zotero key; use a normalized title only as a legacy fallback.
 - Prefer primary sources for technical claims.
 - Record the paper version and access URL in both final artifacts.
+- Keep the source-background check in default-collapsed metadata: an Obsidian `[!info]-` callout and HTML `<details>` without `open`. Follow [references/workflow.md](references/workflow.md#source-background-metadata) for publication, venue/author context and selected key-reference/baseline checks. Preserve the same findings, scope and checked date in both outputs.
 
 ### 2. Resolve the upstream reading state
 
