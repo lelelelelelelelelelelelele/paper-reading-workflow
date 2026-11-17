@@ -34,6 +34,8 @@ Use the learner's language. Put the prompt, event log and stderr in a private wo
 
 On 1.6.15 the helper sets the visible-output idle timeout to 300 seconds inside the CLI process. It also sets connection and read timeouts for the `cl100k_base` tokenizer download so a cold cache can fall back to DeepTutor's approximate token counting if the download fails. These settings affect only the CLI process. Wait for an active command in the chosen workspace to exit before sending another command there. The helper rejects overlapping calls in that workspace.
 
+For organizing notes or revising them, add `--draft` before `run chat`. The 1.6.15 drafting turn uses the prompt and conversation without model tool calls. This keeps DeepTutor's built-in Notebook tool from saving before Codex has checked the draft.
+
 If there is no suitable Notebook, create one in the chosen workspace and retain its ID. Use a single Notebook for the session's draft.
 
 ```sh

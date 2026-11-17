@@ -15,7 +15,7 @@ Use the existing DeepTutor installation. Follow [CLI usage](references/cli.md) t
 
 ## Organize or revise
 
-- Ask DeepTutor in the same session for Markdown that someone can understand without the chat. Supply the useful source anchors and request the full note in its reply. Organize around the concepts, methods or tasks that matter. Preserve meaningful formulas, source figures or figure links, useful tables, assumptions, examples and limitations. Check that the result answers a practical question from the original material.
+- Ask DeepTutor in the same session for Markdown with the helper's `--draft` option. Supply the useful source anchors and request the full note in its reply. Organize around the concepts, methods or tasks that matter. Preserve meaningful formulas, source figures or figure links, useful tables, assumptions, examples and limitations. Check that the result answers a practical question from the original material.
 - For a correction, read back the existing note and give DeepTutor its text along with the correction and relevant evidence. Request a complete revision with the supported correction integrated wherever it changes the reasoning. Keep a clean note body and put the completion recap in chat.
 - Save only after a complete usable response. Write the Markdown to a writable, durable learning location and check material links. Use the same Notebook and the original record ID on revision. Read back the saved record and confirm its body. If saving was interrupted, inspect the scoped Notebook or replay the same save with the same draft and IDs. Use the existing draft rather than generating another note for a save retry.
 

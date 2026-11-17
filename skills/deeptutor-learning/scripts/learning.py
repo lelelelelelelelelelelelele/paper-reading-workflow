@@ -39,6 +39,24 @@ def configure_chat():
     load.read_file = read_encoding
 
 
+def configure_drafting():
+    """Render a chat draft without giving the model Notebook write tools."""
+    from deeptutor.agents.chat.agentic_pipeline import AgenticChatPipeline
+    from deeptutor.runtime.providers.view import ProviderToolView
+    from deeptutor.runtime.registry.tool_registry import ToolRegistry
+
+    async def prepare_draft_tools(self, context):
+        self._tool_view = ProviderToolView.empty(ToolRegistry())
+        self._deferred_loader = None
+        self._deferred_pool = []
+        self._pageindex_providers = set()
+        self._pageindex_cloud_instructions = ""
+        self._pageindex_oss_instructions = ""
+
+    AgenticChatPipeline._prepare_deferred_tools = prepare_draft_tools
+    AgenticChatPipeline._compose_enabled_tools = lambda self, context: []
+
+
 def save_markdown(workspace, arguments):
     """Upsert a session's Markdown record using the same backend as notebook CLI."""
     parser = argparse.ArgumentParser(prog="learning.py save-md")
@@ -108,6 +126,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--workspace", help="DeepTutor workspace ID (empty string selects General)")
     parser.add_argument("--prompt-file", type=Path, help="UTF-8 prompt for run chat")
+    parser.add_argument("--draft", action="store_true", help="Generate text for review before saving")
     parser.add_argument("command", nargs=argparse.REMAINDER, help="DeepTutor CLI command")
     args = parser.parse_args()
 
@@ -125,14 +144,20 @@ def main():
     from filelock import FileLock, Timeout
 
     command = args.command
-    if command[:2] == ["run", "chat"] and version("deeptutor") == "1.6.15":
+    is_chat = command[:2] == ["run", "chat"]
+    supported = is_chat and version("deeptutor") == "1.6.15"
+    if args.draft and not supported:
+        parser.error("--draft requires run chat with DeepTutor 1.6.15")
+    if supported:
         configure_chat()
+    if args.draft:
+        configure_drafting()
     if command[:2] in (["session", "show"], ["notebook", "show"]):
         # The CLI's JSON read-back uses Rich and can wrap within a JSON string.
         if ("--format", "json") in zip(command, command[1:]) or "--format=json" in command:
             console.print = partial(console.print, soft_wrap=True, markup=False, emoji=False)
     if args.prompt_file:
-        if command[:2] != ["run", "chat"]:
+        if not is_chat:
             parser.error("--prompt-file requires run chat")
         # Use the end-of-options marker so prompt text cannot be parsed as flags.
         command = command + ["--", args.prompt_file.read_text(encoding="utf-8")]
