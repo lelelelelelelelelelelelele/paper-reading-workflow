@@ -14,6 +14,7 @@ A paired Codex skill bundle for active academic-paper reading and durable Obsidi
 - 精读笔记不必放进 `20 Literature`。项目自己的 `notes/`、本地 reading log 或其他 workspace-local vault 都是合理位置；正式知识库只保存干净归档。
 - 推荐顺序是 `paper-notes: pre → companion → post`，随后交给 `paper-reading-intake`。如果用户明确只想快速归档，intake 也支持标注清楚的 direct mode。
 - 两个 skill 应一起安装。各自的 agent 说明位于 [`skills/paper-notes/SKILL.md`](skills/paper-notes/SKILL.md) 与 [`skills/paper-reading-intake/SKILL.md`](skills/paper-reading-intake/SKILL.md)。
+- 已配置 DeepTutor 的读者也可以用 [`deeptutor-learning`](skills/deeptutor-learning/SKILL.md) 在 Codex 伴读课件或论文，沿用会话和 Notebook 笔记，并在需要时将草稿和实际来源交给 intake。
 
 ## Why two skills?
 
@@ -97,7 +98,7 @@ New-Item -ItemType Junction -Path "$env:USERPROFILE\.codex\skills\paper-notes" -
 New-Item -ItemType Junction -Path "$env:USERPROFILE\.codex\skills\paper-reading-intake" -Target "$(Get-Location)\paper-reading-workflow\skills\paper-reading-intake"
 ```
 
-For another compatible agent, use its skill-discovery directory instead. The repository root is also plugin-shaped through [`.codex-plugin/plugin.json`](.codex-plugin/plugin.json), with both skills exposed from `skills/`.
+For another compatible agent, use its skill-discovery directory instead. The repository root also exposes `skills/` through [`.codex-plugin/plugin.json`](.codex-plugin/plugin.json). The optional DeepTutor entry requires an existing DeepTutor environment as described in its [CLI reference](skills/deeptutor-learning/references/cli.md).
 
 To update a linked installation:
 
@@ -127,6 +128,10 @@ belong in the local registration.
 paper-reading-workflow/
 ├── .codex-plugin/plugin.json
 ├── skills/
+│   ├── deeptutor-learning/
+│   │   ├── SKILL.md
+│   │   ├── references/
+│   │   └── scripts/
 │   ├── paper-notes/
 │   │   ├── SKILL.md
 │   │   ├── agents/openai.yaml
@@ -140,7 +145,7 @@ paper-reading-workflow/
 └── README.md
 ```
 
-Detailed workflow rules live in the two `SKILL.md` files and their referenced resources. The skill directories intentionally do not contain separate READMEs, which would duplicate agent-facing instructions.
+Detailed workflow rules live in the `SKILL.md` files and their referenced resources.
 
 ## Design guarantees
 
